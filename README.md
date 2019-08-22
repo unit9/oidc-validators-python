@@ -4,5 +4,5 @@
 
     >>> import oidc_validators
     
-    >>> oidc_validators.Google.validate(token, audience)
+    >>> oidc_validators.Google.validate(token, email, audience)
     
