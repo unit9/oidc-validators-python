@@ -39,7 +39,7 @@ class Validator(abc.ABC):
 
     @staticmethod
     @abc.abstractmethod
-    def validate(token, audience):
+    def validate(token, email, audience):
         raise NotImplementedError
 
 
@@ -98,12 +98,18 @@ class Google(Validator):
         return parsed_json
 
     @staticmethod
-    def validate(token, audience):
+    def validate(token, email, audience):
         jwk_sets = Google._discover()
         claim = Google._verify_jwk(token, jwk_sets, audience)
 
         if claim['iss'] != 'https://accounts.google.com':
             raise ValueError('Invalid issuer, malicious request')
+
+        if claim['email'] != email:
+            raise ValueError('Invalid email, malicious request')
+
+        if not claim['email_verified']:
+            raise ValueError('Invalid email (not verified), malicious request')
 
         expired = datetime.datetime.fromtimestamp(claim['exp'])
 
