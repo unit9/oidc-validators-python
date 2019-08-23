@@ -6,7 +6,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='oidc_validators',
-    version='0.5.1',
+    version='0.5.2',
     description='Validates OIDC token',
     url='http://github.com/unit9/oidc-validators-python',
     long_description=long_description,

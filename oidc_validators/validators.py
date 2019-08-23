@@ -5,7 +5,7 @@ import json
 try:
     from django.utils import timezone
 except ImportError:
-    is_django_avaialable = False
+    is_django_available = False
 else:
     is_django_available = True
 
@@ -113,7 +113,7 @@ class Google(Validator):
 
         expired = datetime.datetime.fromtimestamp(claim['exp'])
 
-        if is_django_avaialable:
+        if is_django_available:
             now = timezone.now()
         else:
             now = datetime.datetime.now()
