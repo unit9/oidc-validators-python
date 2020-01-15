@@ -115,6 +115,7 @@ class Google(Validator):
 
         if is_django_available:
             now = timezone.now()
+            expired = timezone.make_aware(expired)
         else:
             now = datetime.datetime.now()
 
