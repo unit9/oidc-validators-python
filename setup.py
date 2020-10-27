@@ -18,7 +18,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'requests',
-        'cryptography==2.7',
+        'cryptography==3.2',
         'PyJWT==1.7.1'
     ],
     zip_safe=False,
