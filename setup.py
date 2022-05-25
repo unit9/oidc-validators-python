@@ -19,7 +19,7 @@ setup(
     install_requires=[
         'requests',
         'cryptography==2.7',
-        'PyJWT==1.7.1'
+        'PyJWT==2.4.0'
     ],
     zip_safe=False,
     python_requires='>=3.7',
